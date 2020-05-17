@@ -40,7 +40,7 @@ def handle_message(event):
     msg = event.message.text
 
 
-    if '感情' in msg:
+    if ['感情', '愛情', '男朋友', '女朋友'] in msg:
         r = '有關感情的事我一律建議分手'
     elif '事業' in msg:
         r = '有關工作的事我一律建議辭職'
