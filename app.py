@@ -38,7 +38,10 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    r = StickerSendMessage(package_id='1',sticker_id='1')
+    r = StickerSendMessage(
+        package_id='1',
+        sticker_id='1'
+        )
 
     # if '感情' or '男朋友' or '女朋友' or '愛情' in msg:
     #     r = '有關感情的事我一律建議分手'
