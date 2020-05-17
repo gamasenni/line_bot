@@ -1,2 +1,2 @@
 line-bot-sdk==1.16.0
-gunicorn
+gunicorn==20.0.4
