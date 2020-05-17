@@ -38,7 +38,6 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    line_bot_api.TextSendMessage(text='你好，我是秋香仙人，目前只能問我感情、事業、寵物的事')
     r = '請不要跟我543'
     for d in str(msg) :
         if msg == '感情':
