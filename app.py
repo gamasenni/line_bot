@@ -38,9 +38,15 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
+    r = StickerSendMessage(package_id='1',sticker_id='1')
+
+    if '感情' or '男朋友' or '女朋友' or '愛情' in msg:
+        r = '有關感情的事我一律建議分手'
+    elif '事業' or '工作' or '上班' in msg:
+        r = '有關工作的事我一律建議辭職'
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='尬拎老師'))
+        TextSendMessage(text=r))
 
 
 if __name__ == "__main__":
