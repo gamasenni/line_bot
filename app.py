@@ -40,13 +40,13 @@ def handle_message(event):
     msg = event.message.text
     r = '請不要跟我543'
     for d in str(msg) :
-        if msg == '感情':
+        if msg == '感情' or '愛情' or '男友' or '女友':
             r = '有關感情的事我一律建議分手'
             break
-        elif msg == ['事業', '工作', '打工', '薪水']:
+        elif msg == '事業' or '工作' or '打工' or '薪水':
             r = '有關工作的事我一律建議辭職'
             break
-        elif msg == ['寵物', '貓', '狗', '鼠']:
+        elif msg == '寵物' or '貓' or '狗' or '鼠':
             r = '有關寵物的事我一律建議安樂死'
             break
         else:
