@@ -38,16 +38,18 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    text_message = TextSendMessage(text='你好，我是秋香仙人，目前只能問我感情、事業、寵物的事')
+    line_bot_api.TextSendMessage(text='你好，我是秋香仙人，目前只能問我感情、事業、寵物的事')
     r = '請不要跟我543'
     for d in str(msg) :
-        if '感情' or '愛情' or '男朋友' or '女朋友' in [d]:
+        if msg == '感情':
             r = '有關感情的事我一律建議分手'
             break
-        # elif msg in ['事業', '工作', '打工', '薪水']:
-        #     r = '有關工作的事我一律建議辭職'
-        # elif msg in ['寵物', '貓', '狗', '鼠']:
-        #     r = '有關寵物的事我一律建議安樂死'
+        elif msg == ['事業', '工作', '打工', '薪水']:
+            r = '有關工作的事我一律建議辭職'
+            break
+        elif msg == ['寵物', '貓', '狗', '鼠']:
+            r = '有關寵物的事我一律建議安樂死'
+            break
         else:
             sticker_message = StickerSendMessage(
                 package_id='1',
