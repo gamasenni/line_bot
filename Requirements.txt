@@ -17,3 +17,4 @@ static3==0.7.0
 twilio==6.40.0
 urllib3==1.25.9
 psycopg2==2.6.1
+flask
