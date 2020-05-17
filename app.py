@@ -38,26 +38,25 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
+    text_message = TextSendMessage(text='你好，我是秋香仙人，目前只能問我感情、事業、寵物的事')
+    r = '請不要跟我543'
+    for d in msg :
+        if ['感情', '愛情', '男朋友', '女朋友'] in d:
+            r = '有關感情的事我一律建議分手'
+        # elif msg in ['事業', '工作', '打工', '薪水']:
+        #     r = '有關工作的事我一律建議辭職'
+        # elif msg in ['寵物', '貓', '狗', '鼠']:
+        #     r = '有關寵物的事我一律建議安樂死'
+        else:
+            sticker_message = StickerSendMessage(
+                package_id='1',
+                sticker_id='1'
+            )
+            line_bot_api.reply_message(
+                event.reply_token,
+                sticker_message)
 
-
-    if msg in ['感情', '愛情', '男朋友', '女朋友']:
-        r = '有關感情的事我一律建議分手'
-    elif msg in ['事業', '工作', '打工', '薪水']:
-        r = '有關工作的事我一律建議辭職'
-    elif msg in ['寵物', '貓', '狗', '鼠']:
-        r = '有關寵物的事我一律建議安樂死'
-    else:
-        sticker_message = StickerSendMessage(
-            package_id='1',
-            sticker_id='1'
-        )
-        line_bot_api.reply_message(
-            event.reply_token,
-            sticker_message)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='只能問我感情、事業、寵物的問題啦'))
-        return
+            break
 
     line_bot_api.reply_message(
         event.reply_token,
