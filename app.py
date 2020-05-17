@@ -41,8 +41,9 @@ def handle_message(event):
     text_message = TextSendMessage(text='你好，我是秋香仙人，目前只能問我感情、事業、寵物的事')
     r = '請不要跟我543'
     for d in str(msg) :
-        if ['感情', '愛情', '男朋友', '女朋友'] in d:
+        if d in ['感情', '愛情', '男朋友', '女朋友']:
             r = '有關感情的事我一律建議分手'
+            break
         # elif msg in ['事業', '工作', '打工', '薪水']:
         #     r = '有關工作的事我一律建議辭職'
         # elif msg in ['寵物', '貓', '狗', '鼠']:
