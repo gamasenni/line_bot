@@ -54,6 +54,9 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             sticker_message)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text='只能問我感情、事業、寵物的問題啦'))
         return
 
     line_bot_api.reply_message(
