@@ -40,12 +40,12 @@ def handle_message(event):
     msg = event.message.text
 
 
-    if ['感情', '愛情', '男朋友', '女朋友'] in msg:
+    if '感情' or '愛情' or '男朋友' or '女朋友' in msg:
         r = '有關感情的事我一律建議分手'
-    elif ['事業', '工作', '打工', '薪水'] in msg:
-        r = '有關工作的事我一律建議辭職'
-    elif ['寵物', '貓', '狗', '鼠'] in msg:
-        r = '有關寵物的事我一律建議安樂死'
+    # elif ['事業', '工作', '打工', '薪水'] in msg:
+    #     r = '有關工作的事我一律建議辭職'
+    # elif ['寵物', '貓', '狗', '鼠'] in msg:
+    #     r = '有關寵物的事我一律建議安樂死'
     else:
         sticker_message = StickerSendMessage(
             package_id='1',
