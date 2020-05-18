@@ -38,27 +38,29 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
+    relationship = ['感情', '愛情', '男友', '女友']
+    job = ['工作','事業', '薪水', '打工']
+    pets = ['寵物','貓', '狗', '鼠']
     r = '請不要跟我543'
-    for d in str(msg) :
-        if msg == '感情':
-            r = '有關感情的事我一律建議分手'
-            break
-        elif msg == '事業':
-            r = '有關工作的事我一律建議辭職'
-            break
-        elif msg == '寵物':
-            r = '有關寵物的事我一律建議安樂死'
-            break
+    for d in relationship :
+        if msg.find(d) > 0 :
+            r = '有關感情的事我一律建議分手'         
         else:
-            sticker_message = StickerSendMessage(
-                package_id='1',
-                sticker_id='1'
-            )
-            line_bot_api.reply_message(
-                event.reply_token,
-                sticker_message)
-
-            break
+            for d in job :
+                if msg.find(d) > 0 : 
+                    r = '有關工作的事我一律建議辭職'
+                else :
+                    for d in pets :
+                        if msg.find(d) > 0 :
+                            r = '有關寵物的事我一律建議安樂死'
+                        else:
+                            sticker_message = StickerSendMessage(
+                                package_id='1',
+                                sticker_id='1'
+                            )
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                sticker_message)
 
     line_bot_api.reply_message(
         event.reply_token,
