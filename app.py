@@ -53,14 +53,15 @@ def handle_message(event):
                         if msg.find(d) > 0 :
                             r = '有關寵物的事我一律建議安樂死'
                         else:
-                            sticker_message = StickerSendMessage(
-                                package_id='1',
-                                sticker_id='1'
-                            )
-                            line_bot_api.reply_message(
-                                event.reply_token,
-                                sticker_message)
-            break
+                            break
+            #                 sticker_message = StickerSendMessage(
+            #                     package_id='1',
+            #                     sticker_id='1'
+            #                 )
+            #                 line_bot_api.reply_message(
+            #                     event.reply_token,
+            #                     sticker_message)
+            # break
 
     line_bot_api.reply_message(
         event.reply_token,
