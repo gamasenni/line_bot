@@ -34,13 +34,12 @@ def callback():
 
     return 'OK'
 
-
+relationship = ['感情', '愛情', '男友', '女友']
+job = ['工作','事業', '薪水', '打工']
+pets = ['寵物','貓', '狗', '鼠']
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    relationship = ['感情', '愛情', '男友', '女友']
-    job = ['工作','事業', '薪水', '打工']
-    pets = ['寵物','貓', '狗', '鼠']
     r = '請不要跟我543'
     for d in relationship :
         if msg.find(d) > 0 :
@@ -61,6 +60,7 @@ def handle_message(event):
                             line_bot_api.reply_message(
                                 event.reply_token,
                                 sticker_message)
+    break
 
     line_bot_api.reply_message(
         event.reply_token,
